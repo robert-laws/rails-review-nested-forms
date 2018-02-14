@@ -1,0 +1,36 @@
+<h1>Create a New Store Form</h1>
+
+<% if @store.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@store.errors.count, "error") %> 
+      prevented the store from being saved.
+    </h2>
+    <ul>
+      <% @store.errors.full_messages.each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @store do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %><br>
+
+  <%= f.fields_for :orders, @store.orders.build do |order_field| %>
+    <%= order_field.label :quantity %>
+    <%= order_field.number_field :quantity %><br>
+    <%= order_field.fields_for :customers, @store.customers.build do |customer_field| %>
+      <%= customer_field.label :name %>
+      <%= customer_field.text_field :name %><br>
+    <% end %>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

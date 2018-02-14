@@ -1,0 +1,43 @@
+<h1>Individual Store Information</h1>
+
+<h4>
+  Name: <%= @store.name %>
+</h4>
+
+<p>
+  Location: <%= @store.location %>
+</p>
+
+<p>
+  List all store Customers:
+</p>
+
+<ul>
+  <% @store.customers.each do |customer| %>
+    <li>
+      <%= customer.name %>
+    </li>
+  <% end %>
+</ul>
+
+<p>
+  List all store Orders:
+</p>
+
+<ol>
+  <% @store.orders.each do |order| %>
+    <li>
+      an order for <%= pluralize(order.quantity, "ice cream") %>
+    </li>
+  <% end %>
+</ol>
+
+<hr>
+
+<%= link_to 'Edit this Store', edit_store_path(@store) %>
+<br>
+<br>
+<%= link_to 'Delete this Store', @store, method: :delete, data: { confirm: "Are you sure?" } %>
+<br>
+<br>
+<%= link_to 'Show all Stores', stores_path %>

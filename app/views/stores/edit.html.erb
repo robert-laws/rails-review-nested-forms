@@ -1,0 +1,27 @@
+<h1>Edit an Existing Store</h1>
+
+<% if @store.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@store.errors.count, "error") %> 
+      prevented the store from being saved.
+    </h2>
+    <ul>
+      <% @store.errors.full_messages.each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @store do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %><br>
+
+  <%= f.submit %>
+<% end %>

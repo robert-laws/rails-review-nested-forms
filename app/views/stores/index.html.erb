@@ -1,0 +1,13 @@
+<h1>All Ice Cream Stores</h1>
+
+<ul>
+  <% @stores.each do |store| %>
+    <li>
+      <%= link_to store.name, store_path(store) %>
+    </li>
+  <% end %>
+</ul>
+
+<hr>
+
+<%= link_to 'Create a new Store', new_store_path %>
