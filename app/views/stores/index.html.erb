@@ -1,5 +1,7 @@
 <h1>All Ice Cream Stores</h1>
 
+<%= render 'motto' %>
+
 <ul>
   <% @stores.each do |store| %>
     <li>
@@ -11,3 +13,7 @@
 <hr>
 
 <%= link_to 'Create a new Store', new_store_path %>
+
+<hr>
+
+<%= link_to 'About this Website', about_path %>
