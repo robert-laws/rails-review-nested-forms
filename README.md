@@ -4,4 +4,4 @@
 
 * Stores
 * Customers
-* Join Table - Orders
+* Join Table - Orders (See this for example of join table with additional data)
